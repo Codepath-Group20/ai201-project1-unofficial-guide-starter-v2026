@@ -14,16 +14,13 @@ to whatever that unit's requirements.txt pins.
 Nothing here touches your project code, and nothing here is graded.
 """
 
-__import__('pysqlite3')
-import sys
-sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
 import importlib
 import importlib.metadata as md
 import os
 import platform
 import re
 import shutil
-#import sys
+import sys
 from pathlib import Path
 
 # --- Course-wide pins -------------------------------------------------------
