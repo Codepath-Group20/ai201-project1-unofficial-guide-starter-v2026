@@ -1,0 +1,68 @@
+  (best distance 0.374, cutoff 0.6)
+
+You can add a course through the end of the second week, and dropping ends through the end of week six (admin_add_drop_deadline.txt).
+
+Sources retrieved: admin_add_drop_deadline.txt, admin_withdrawal_deadline.txt, advising_registration.txt, course_cs_340.txt, course_cs_340_workload.txt
+
+1 model calls this session, 450 tokens (417 in, 33 out)
+  (best distance 0.275, cutoff 0.6)
+
+The assessment for STAT 150 consists of three equally weighted midterms with no final, no curve, and the lowest midterm is dropped. 
+
+Source: `course_stat_150.txt` (also found in `course_stat_150_exams.txt`)
+
+Sources retrieved: course_cs_340_exams.txt, course_hist_118.txt, course_stat_150.txt, course_stat_150_exams.txt, course_stat_150_workload.txt
+
+1 model calls this session, 473 tokens (412 in, 61 out)
+  (best distance 0.330, cutoff 0.6)
+
+Morrow House is in the cheapest housing tier by about $900 a year. 
+
+Source: `housing_morrow_house.txt`
+
+Sources retrieved: housing_aldridge_hall.txt, housing_morrow_house.txt, housing_morrow_house_laundry.txt, housing_morrow_house_noise.txt
+
+1 model calls this session, 408 tokens (377 in, 31 out)
+  (best distance 0.146, cutoff 0.6)
+
+Wait times at Verrill Street Grill are up to 30 minutes on Friday evenings, and otherwise under 10 minutes. 
+
+Source: `dining_verrill_street_grill.txt` (also supported by `dining_verrill_street_grill_followup.txt`)
+
+Sources retrieved: dining_north_kitchen_followup.txt, dining_pellew_dining_hall_followup.txt, dining_the_ridgeway_cafe_followup.txt, dining_verrill_street_grill.txt, dining_verrill_street_grill_followup.txt
+
+1 model calls this session, 622 tokens (558 in, 64 out)
+  (best distance 0.358, cutoff 0.6)
+
+Based on the provided documents, the workload for CS 210 does not change throughout the semester; it requires 8 to 10 hours a week outside of class (source: `course_cs_210_workload.txt`).
+
+Sources retrieved: course_cs_210_workload.txt, course_cs_340_workload.txt, course_engl_205_workload.txt, course_phys_130_workload.txt, course_stat_150_workload.txt
+
+1 model calls this session, 463 tokens (411 in, 52 out)
+  (best distance 0.542, cutoff 0.6)
+
+I do not have enough information to answer this question.
+
+Sources retrieved: admin_parking_permits.txt, dining_the_ridgeway_cafe.txt, housing_old_brewhouse.txt, money_textbooks.txt, transit_shuttle.txt
+
+1 model calls this session, 446 tokens (435 in, 11 out)
+  (best distance 0.821, cutoff 0.6)
+
+I don't have enough information about that.
+
+0 model calls this session
+  (best distance 0.813, cutoff 0.6)
+
+I don't have enough information about that.
+
+0 model calls this session
+  (best distance 0.760, cutoff 0.6)
+
+I don't have enough information about that.
+
+0 model calls this session
+  (best distance 0.885, cutoff 0.6)
+
+I don't have enough information about that.
+
+0 model calls this session
