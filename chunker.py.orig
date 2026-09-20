@@ -23,7 +23,6 @@ your pipeline, not giving up.
 """
 
 from dataclasses import dataclass
-import re
 
 import config
 from ingest import Document
@@ -83,52 +82,22 @@ def fallback_split(
 
 def split_documents(documents: list[Document]) -> list[Chunk]:
     """
-    Split documents into coherent paragraphs/replies, merging short fragments
-    so every chunk contains a complete, self-contained thought.
+    Split documents into chunks. ⚠️ REPLACE THE BODY OF THIS IN MILESTONE 3.
+
+    Right now it just calls the fallback. That is the plain, generic behaviour
+    the brief is talking about.
+
+    When you write your own strategy, set `produced_by` to
+    "chunker.py::split_documents" so your README's Sample Chunks section names
+    the right function. `app.py chunks` prints that string for you.
+
+    Things worth thinking about before you write any code:
+      - Are your documents short posts or long guides?
+      - Is the useful information in one sentence, or spread over a paragraph?
+      - Would splitting on paragraph breaks keep more thoughts intact than
+        splitting on a character count?
     """
-    chunks: list[Chunk] = []
-
-    for doc in documents:
-        raw_parts = re.split(r"\n\s*\n|(?=--- reply)", doc.text)
-        
-        merged_blocks = []
-        buffer = ""
-
-        for part in raw_parts:
-            text = part.strip()
-            if not text:
-                continue
-
-            # If the current block is very short (e.g. a heading under 60 chars),
-            # buffer it to merge with the next paragraph.
-            if len(text) < 60:
-                buffer = f"{buffer}\n{text}".strip() if buffer else text
-            else:
-                if buffer:
-                    merged_blocks.append(f"{buffer}\n{text}")
-                    buffer = ""
-                else:
-                    merged_blocks.append(text)
-        
-        if buffer:
-            if merged_blocks:
-                merged_blocks[-1] = f"{merged_blocks[-1]}\n{buffer}"
-            else:
-                merged_blocks.append(buffer)
-
-        index = 0
-        for block in merged_blocks:
-            chunks.append(
-                Chunk(
-                    text=block,
-                    source=doc.source,
-                    index=index,
-                    produced_by="chunker.py::split_documents",
-                )
-            )
-            index += 1
-
-    return chunks
+    return fallback_split(documents)
 
 
 def describe(chunks: list[Chunk]) -> str:

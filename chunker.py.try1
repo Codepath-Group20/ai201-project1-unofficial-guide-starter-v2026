@@ -83,50 +83,31 @@ def fallback_split(
 
 def split_documents(documents: list[Document]) -> list[Chunk]:
     """
-    Split documents into coherent paragraphs/replies, merging short fragments
-    so every chunk contains a complete, self-contained thought.
+    Split documents into chunks using paragraph and reply boundary splitting.
+
+    This function splits documents on structural boundaries (`\n\n` or reply separators)
+    to ensure each chunk represents a single complete thought without slicing sentences
+    or mixing unrelated replies together.
     """
     chunks: list[Chunk] = []
 
     for doc in documents:
-        raw_parts = re.split(r"\n\s*\n|(?=--- reply)", doc.text)
+        # Split on double newlines or thread separators (e.g., "--- reply")
+        raw_paragraphs = re.split(r"\n\s*\n|(?=--- reply)", doc.text)
         
-        merged_blocks = []
-        buffer = ""
-
-        for part in raw_parts:
-            text = part.strip()
-            if not text:
-                continue
-
-            # If the current block is very short (e.g. a heading under 60 chars),
-            # buffer it to merge with the next paragraph.
-            if len(text) < 60:
-                buffer = f"{buffer}\n{text}".strip() if buffer else text
-            else:
-                if buffer:
-                    merged_blocks.append(f"{buffer}\n{text}")
-                    buffer = ""
-                else:
-                    merged_blocks.append(text)
-        
-        if buffer:
-            if merged_blocks:
-                merged_blocks[-1] = f"{merged_blocks[-1]}\n{buffer}"
-            else:
-                merged_blocks.append(buffer)
-
         index = 0
-        for block in merged_blocks:
-            chunks.append(
-                Chunk(
-                    text=block,
-                    source=doc.source,
-                    index=index,
-                    produced_by="chunker.py::split_documents",
+        for para in raw_paragraphs:
+            cleaned_text = para.strip()
+            if cleaned_text:
+                chunks.append(
+                    Chunk(
+                        text=cleaned_text,
+                        source=doc.source,
+                        index=index,
+                        produced_by="chunker.py::split_documents",
+                    )
                 )
-            )
-            index += 1
+                index += 1
 
     return chunks
 

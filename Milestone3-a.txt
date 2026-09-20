@@ -1,0 +1,36 @@
+173 chunks total. Showing 5, spread across the corpus.
+
+Paste these into your README under Sample Chunks. The rubric asks
+for the source file and the function that produced them — both are
+printed for you below.
+
+======================================================================
+Chunk 1  |  source: admin_add_drop_deadline.txt#0  |  produced by: chunker.py::split_documents
+======================================================================
+On the add/drop deadline
+You can add a course through the end of the second week. Dropping is a longer window — through the end of week six — but a drop after week two shows as a W on your transcript. Nothing anywhere on the registrar's site says this plainly, and students find out from each other.
+
+======================================================================
+Chunk 2  |  source: course_cs_340_exams.txt#1  |  produced by: chunker.py::split_documents
+======================================================================
+Start the term project in week three, not week eight; everyone learns this the hard way.
+
+======================================================================
+Chunk 3  |  source: course_stat_150_exams.txt#0  |  produced by: chunker.py::split_documents
+======================================================================
+STAT 150 Applied Statistics — assessment
+Three equally weighted midterms, no final. No curve, but the lowest midterm is dropped.
+
+======================================================================
+Chunk 4  |  source: housing_aldridge_hall.txt#0  |  produced by: chunker.py::split_documents
+======================================================================
+Aldridge Hall — what it's actually like
+I lived here my sophomore year. Built 1968, renovated 2019. Rooms are doubles with a shared bathroom per floor.
+
+======================================================================
+Chunk 5  |  source: housing_morrow_house.txt#3  |  produced by: chunker.py::split_documents
+======================================================================
+Laundry costs $1.50 wash, $1.25 dry, coin or card. On noise: loud until about 1am on weekends, no enforced quiet hours.
+
+For each one, ask: could someone answer a question using only this,
+without reading what came before or after?

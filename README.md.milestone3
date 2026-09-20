@@ -1,0 +1,118 @@
+# The Unofficial Guide
+
+**Author:** Leo  
+**Corpus:** `campus_life`
+
+> **This file is your submission.** Fill it in as you go — most sections get written during the milestone that produces them, not at the end.
+>
+> How the starter works, and every command you'll need, is in `RUNNING.md`. Leave that file alone.
+>
+> **Paste everything as text.** No screenshots, no video. A typed table gets full credit; a picture of the same table gets none.
+
+---
+
+# Unit 1
+
+## What This Does
+
+This application is a Retrieval-Augmented Generation (RAG) assistant for campus life and student advice. It ingests student housing rules, course exam structures, registration policies, and dining guides, indexing them as dense vector embeddings in ChromaDB. When users ask questions about campus navigation, exam formats, or add/drop deadlines, the system retrieves relevant document chunks and synthesizes grounded answers using Gemini.
+
+## Chunking Strategy
+
+**Chunk size:** Variable (split by structural paragraph and reply boundaries)  
+**Overlap:** None (structural paragraph isolation with fragment merging)
+
+In the `campus_life` corpus, documents consist of short advice forum posts, course reviews, and administrative notices averaging 200–500 characters. The starter's fixed 800-character windows bundled multiple unrelated topics together. Splitting on double-newline paragraph breaks and forum reply headers keeps single thoughts intact. To fix short headings (e.g., "On the add/drop deadline") from becoming standalone 10-character fragment chunks, short blocks under 60 characters are automatically merged with the subsequent paragraph.
+
+## Sample Chunks
+
+**Chunk 1** — source: `admin_add_drop_deadline.txt#0` — produced by: `chunker.py::split_documents`
+
+<pre><code>On the add/drop deadline
+You can add a course through the end of the second week. Dropping is a longer window — through the end of week six — but a drop after week two shows as a W on your transcript. Nothing anywhere on the registrar's site says this plainly, and students find out from each other.</code></pre>
+
+**Chunk 2** — source: `course_cs_340_exams.txt#1` — produced by: `chunker.py::split_documents`
+
+<pre><code>Start the term project in week three, not week eight; everyone learns this the hard way.</code></pre>
+
+**Chunk 3** — source: `course_stat_150_exams.txt#0` — produced by: `chunker.py::split_documents`
+
+<pre><code>STAT 150 Applied Statistics — assessment
+Three equally weighted midterms, no final. No curve, but the lowest midterm is dropped.</code></pre>
+
+**Chunk 4** — source: `housing_aldridge_hall.txt#0` — produced by: `chunker.py::split_documents`
+
+<pre><code>Aldridge Hall — what it's actually like
+I lived here my sophomore year. Built 1968, renovated 2019. Rooms are doubles with a shared bathroom per floor.</code></pre>
+
+**Chunk 5** — source: `housing_morrow_house.txt#3` — produced by: `chunker.py::split_documents`
+
+<pre><code>Laundry costs $1.50 wash, $1.25 dry, coin or card. On noise: loud until about 1am on weekends, no enforced quiet hours.</code></pre>
+
+## Sample Answer
+
+**Question:**
+
+**Answer:**
+
+<pre><code></code></pre>
+
+**My relevance cutoff:**
+
+| Question | In corpus? | Best distance |
+|---|---|---|
+| | | |
+
+## How I Used AI
+
+**1.**
+
+**2.**
+
+---
+
+# Unit 2
+
+## Run Log — Before
+
+| Criterion | Target | Run 1 | Run 2 | Run 3 | Verdict |
+|---|---|---|---|---|---|
+| 1. Retrieved chunk contains the answer | 4 of 5 | | | | |
+| 2. Every answer names a source | 5 of 5 | | | | |
+| 3. Gate stops out-of-corpus questions | 4 of 5 | | | | |
+| 4. | | | | | |
+| 5. | | | | | |
+
+## Verdicts
+
+| # | Criterion | Verdict | How I decided |
+|---|---|---|---|
+| 1 | | | |
+| 2 | | | |
+| 3 | | | |
+| 4 | | | |
+| 5 | | | |
+
+## Diagnoses
+
+## The Improvement
+
+**What I changed:**
+
+**Why I picked it:**
+
+### Run Log — After
+
+| Criterion | Target | Run 1 | Run 2 | Run 3 | Verdict |
+|---|---|---|---|---|---|
+| 1. Retrieved chunk contains the answer | 4 of 5 | | | | |
+| 2. Every answer names a source | 5 of 5 | | | | |
+| 3. Gate stops out-of-corpus questions | 4 of 5 | | | | |
+| 4. | | | | | |
+| 5. | | | | | |
+
+**Did it help?**
+
+## What's Still Broken
+
+## What I'd Do Differently
