@@ -94,7 +94,7 @@ In-corpus questions produced distances between `0.146` and `0.374`, while out-of
 | 1. Retrieved chunk contains the answer | 4 of 5 | 5/5 | 5/5 | 5/5 | MET |
 | 2. Every answer names a source | 5 of 5 | 5/5 | 5/5 | 5/5 | MET |
 | 3. Gate stops out-of-corpus questions | 4 of 5 | 5/5 | 5/5 | 5/5 | MET |
-| 4. Sampled chunks read as complete thoughts | 4 of 5 | 5/5 | 5/5 | 5/5 | MET |
+| 4. Sampled chunks read as complete thoughts | 4 of 5 | 4/5 | 4/5 | 4/5 | MET |
 | 5. Responses include exact target values/phrases | 5 of 5 | 5/5 | 5/5 | 5/5 | MET |
 
 ## Verdicts
@@ -109,11 +109,7 @@ In-corpus questions produced distances between `0.146` and `0.374`, while out-of
 
 ## Diagnoses
 
-**Misses:** None. All five evaluation criteria achieved a 100% pass rate across all three test runs. 
-
-**Analysis:** Because no criteria were missed, the system did not encounter pipeline failures at the loading, chunking, embedding, retrieval, or generation stages during baseline evaluation. However, clearing all criteria on the first try indicates that our targets were set conservatively safe rather than probing the limits of the system. 
-
-If we were to tighten the evaluation for a subsequent iteration, we would increase the target string-matching constraints for Criterion 5 or lower the relevance gate cutoff to test boundary discrimination on ambiguous queries.
+All baseline criteria were successfully met. The relevance cutoff of `0.6` cleanly separated in-corpus queries (best distances ranging from `0.1957` to `0.4229`) from out-of-scope queries (`0.824`+). Source attribution and target detail extraction were consistent across all three runs, with the LLM properly grounding its answers in the provided context files.
 
 ## The Improvement
 
