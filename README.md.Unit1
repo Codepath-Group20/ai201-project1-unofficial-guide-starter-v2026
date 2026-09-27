@@ -91,25 +91,23 @@ In-corpus questions produced distances between `0.146` and `0.374`, while out-of
 
 | Criterion | Target | Run 1 | Run 2 | Run 3 | Verdict |
 |---|---|---|---|---|---|
-| 1. Retrieved chunk contains the answer | 4 of 5 | 5/5 | 5/5 | 5/5 | MET |
-| 2. Every answer names a source | 5 of 5 | 5/5 | 5/5 | 5/5 | MET |
-| 3. Gate stops out-of-corpus questions | 4 of 5 | 5/5 | 5/5 | 5/5 | MET |
-| 4. Sampled chunks read as complete thoughts | 4 of 5 | 4/5 | 4/5 | 4/5 | MET |
-| 5. Responses include exact target values/phrases | 5 of 5 | 5/5 | 5/5 | 5/5 | MET |
+| 1. Retrieved chunk contains the answer | 4 of 5 | | | | |
+| 2. Every answer names a source | 5 of 5 | | | | |
+| 3. Gate stops out-of-corpus questions | 4 of 5 | | | | |
+| 4. | | | | | |
+| 5. | | | | | |
 
 ## Verdicts
 
 | # | Criterion | Verdict | How I decided |
 |---|---|---|---|
-| 1 | Retrieved chunk contains the answer | MET | All 5 test questions successfully retrieved the correct document chunks across all 3 runs, confirmed by inspection of generation outputs and source lists. |
-| 2 | Every answer names a source | MET | Every single generated response across all 3 evaluation runs successfully cited its source file inline. |
-| 3 | Gate stops out-of-corpus questions | MET | The relevance gate successfully refused all 5 out-of-scope test questions (yielding distance scores between `0.824` and `0.923`, well above the `0.6` cutoff). |
-| 4 | Sampled chunks read as complete thoughts | MET | Inspection of chunk boundaries confirmed that paragraph-based splitting successfully kept thoughts intact without splitting sentences in half. |
-| 5 | Responses include exact target values/phrases | MET | The prompt configuration successfully forced Gemini to output precise target details and metrics matching expectations. |
+| 1 | | | |
+| 2 | | | |
+| 3 | | | |
+| 4 | | | |
+| 5 | | | |
 
 ## Diagnoses
-
-All baseline criteria were successfully met. The relevance cutoff of `0.6` cleanly separated in-corpus queries (best distances ranging from `0.1957` to `0.4229`) from out-of-scope queries (`0.824`+). Source attribution and target detail extraction were consistent across all three runs, with the LLM properly grounding its answers in the provided context files.
 
 ## The Improvement
 
@@ -124,8 +122,8 @@ All baseline criteria were successfully met. The relevance cutoff of `0.6` clean
 | 1. Retrieved chunk contains the answer | 4 of 5 | | | | |
 | 2. Every answer names a source | 5 of 5 | | | | |
 | 3. Gate stops out-of-corpus questions | 4 of 5 | | | | |
-| 4. Sampled chunks read as complete thoughts | 4 of 5 | | | | |
-| 5. Responses include exact target values/phrases | 5 of 5 | | | | |
+| 4. | | | | | |
+| 5. | | | | | |
 
 **Did it help?**
 

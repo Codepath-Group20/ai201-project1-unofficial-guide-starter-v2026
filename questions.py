@@ -22,11 +22,11 @@ QUESTIONS = [
 ]
 
 OUT_OF_SCOPE = [
-    "What is the capital of Mongolia?",
-    "How do I change the oil in a diesel engine?",
-    "Who won the 1994 World Cup?",
-    "What is the recommended dosage of ibuprofen for a headache?",
-    "How do I write a for loop in Rust?",
+    "What is the capital of France?",
+    "Where can I buy space shuttle tickets on campus?",
+    "Who won the 1998 FIFA World Cup?",
+    "What are the basic rules of cricket?",
+    "How do I adjust a carburetor on a 1972 Mustang?"
 ]
 
 
